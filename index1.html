@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Ceabert J. Griffith — Transform Your Health &amp; Vitality</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-deep:#1e2c22;
+    --forest-mid:#33472f;
+    --sage:#8ea77e;
+    --sage-soft:#dfe6d3;
+    --parchment:#f6f1e6;
+    --parchment-dark:#ece3d0;
+    --gold:#b6873f;
+    --gold-soft:#e4c898;
+    --ink:#22301c;
+    --ink-soft:#54604a;
+    --line:rgba(34,48,28,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Work Sans', 'Noto Sans TC', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.lang-zh{ font-family:'Noto Sans TC','Work Sans', sans-serif; }
+
+  h1,h2,h3, .display{
+    font-family:'Fraunces','Noto Serif TC', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--forest-deep);
+  }
+  body.lang-zh h1, body.lang-zh h2, body.lang-zh h3, body.lang-zh .display{
+    font-family:'Noto Serif TC','Fraunces', serif;
+  }
+
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+
+  /* language toggle helper */
+  body.lang-en .zh{display:none;}
+  body:not(.lang-en) .en{display:none;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,230,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .brand{
+    font-family:'Fraunces','Noto Serif TC', serif;
+    font-size:1.05rem; font-weight:600; color:var(--forest-deep);
+    letter-spacing:0.01em;
+  }
+  .brand small{display:block; font-family:'Work Sans','Noto Sans TC',sans-serif; font-weight:400; font-size:0.72rem; color:var(--ink-soft); letter-spacing:0.02em;}
+  body.lang-zh .brand small{font-family:'Noto Sans TC',sans-serif;}
+  nav.links{display:flex; gap:28px; font-size:0.92rem;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s, color .2s;}
+  nav.links a:hover{color:var(--forest-deep); border-color:var(--gold);}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+
+  .lang-toggle{
+    display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;
+    font-size:0.78rem; font-family:'Work Sans',sans-serif;
+  }
+  .lang-toggle button{
+    border:none; background:transparent; padding:7px 14px; cursor:pointer;
+    color:var(--ink-soft); font-weight:500; transition:background .2s, color .2s;
+  }
+  .lang-toggle button.active{background:var(--forest-deep); color:var(--parchment);}
+
+  @media(max-width:760px){
+    nav.links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(120% 140% at 15% 0%, #2c3e28 0%, var(--forest-deep) 55%, #16201a 100%);
+    color:var(--parchment);
+    overflow:hidden;
+    padding:100px 0 130px;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-eyebrow{
+    display:inline-block; font-size:0.85rem; color:var(--gold-soft);
+    border-left:2px solid var(--gold); padding-left:12px; margin-bottom:26px;
+    font-weight:500; opacity:0; animation:rise .9s ease .1s forwards;
+  }
+  .hero h1{
+    color:#fbf7ee; font-size:clamp(2.4rem, 5vw, 4.1rem); line-height:1.06;
+    max-width:820px; opacity:0; animation:rise .9s ease .25s forwards;
+  }
+  .hero p.lede{
+    margin-top:26px; max-width:540px; font-size:1.12rem; color:#d8ddd0; font-weight:300;
+    opacity:0; animation:rise .9s ease .4s forwards;
+  }
+  body.lang-zh .hero p.lede{font-size:1.08rem;}
+  .hero-cta{display:flex; gap:16px; flex-wrap:wrap; margin-top:40px; opacity:0; animation:rise .9s ease .55s forwards;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px; border-radius:3px; text-decoration:none;
+    font-size:0.95rem; font-weight:500; transition:transform .2s ease, background .2s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold); color:#221806;}
+  .btn-gold:hover{background:#c79753;}
+  .btn-outline{border-color:rgba(251,247,238,0.4); color:#fbf7ee;}
+  .btn-outline:hover{border-color:#fbf7ee; background:rgba(251,247,238,0.08);}
+
+  @keyframes rise{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+
+  .hero-art{position:absolute; inset:0; z-index:1; opacity:0.55; pointer-events:none;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .section-head .kicker{color:var(--gold); font-size:0.85rem; font-weight:600; margin-bottom:10px; display:block;}
+  .section-head h2{font-size:clamp(1.7rem, 3vw, 2.3rem);}
+  .section-head p{margin-top:16px; color:var(--ink-soft); font-size:1.05rem;}
+
+  .divider{width:100%; height:56px; display:block;}
+  .divider path{stroke:var(--sage); stroke-width:1.4; fill:none; opacity:0.55;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--parchment);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;}}
+
+  .credential-list{display:flex; flex-direction:column; gap:0;}
+  .credential{
+    display:flex; gap:18px; padding:22px 0; border-top:1px solid var(--line);
+  }
+  .credential:last-child{border-bottom:1px solid var(--line);}
+  .credential .mark{
+    flex:none; width:34px; height:34px; border-radius:50%;
+    border:1px solid var(--gold); color:var(--gold);
+    display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:600;
+    font-family:'Fraunces', serif;
+  }
+  .credential h3{font-size:1.08rem; font-weight:600;}
+  .credential p{margin:4px 0 0; color:var(--ink-soft); font-size:0.95rem;}
+
+  .book-panel{
+    background:var(--forest-deep); color:var(--parchment);
+    border-radius:4px; padding:36px 32px;
+    position:relative;
+  }
+  .book-panel h3{color:#fbf7ee; font-size:1.15rem; margin-bottom:18px;}
+  .book-item{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:14px 0; border-top:1px solid rgba(251,247,238,0.14); font-size:0.95rem; color:#e3e6da;
+  }
+  .book-item:last-child{padding-bottom:0;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--parchment-dark);}
+  .service-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:26px;}
+  .service-card{
+    background:var(--parchment); border:1px solid var(--line); border-radius:4px;
+    padding:28px 26px 24px; position:relative; overflow:hidden;
+  }
+  .service-card .leaf{width:30px; height:30px; color:var(--sage); margin-bottom:18px;}
+  .service-card h3{font-size:1.14rem; margin-bottom:14px;}
+  .tag-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-size:0.82rem; padding:6px 12px; border-radius:999px;
+    background:var(--sage-soft); color:#3a4a33; border:1px solid rgba(142,167,126,0.4);
+  }
+
+  /* ---------- INVESTMENT ---------- */
+  .investment{background:var(--parchment);}
+  .invest-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;}
+  @media(max-width:820px){.invest-grid{grid-template-columns:1fr;}}
+  .invest-card{
+    border:1px solid var(--line); border-radius:4px; padding:30px 26px;
+    background:linear-gradient(180deg, #fffdf8 0%, var(--parchment) 100%);
+  }
+  .invest-card .figure{font-family:'Fraunces',serif; font-size:2.1rem; color:var(--forest-deep); margin-bottom:8px;}
+  .invest-card h3{font-size:1rem; font-weight:600; margin-bottom:10px; color:var(--forest-deep);}
+  .invest-card p{color:var(--ink-soft); font-size:0.93rem; margin:0;}
+  .invest-card ul{margin:10px 0 0; padding-left:18px; color:var(--ink-soft); font-size:0.93rem;}
+
+  /* ---------- DISCLAIMER ---------- */
+  .disclaimer{background:var(--forest-deep); color:#e6e9dd;}
+  .disclaimer .wrap{max-width:820px;}
+  .disclaimer h2{color:#fbf7ee;}
+  .disclaimer .section-head p{color:#c7ccbb;}
+  .principle-row{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
+  @media(max-width:760px){.principle-row{grid-template-columns:1fr;}}
+  .principle{border-top:1px solid rgba(251,247,238,0.18); padding-top:18px;}
+  .principle h3{color:var(--gold-soft); font-size:1rem; font-weight:600; margin-bottom:8px;}
+  .principle p{color:#c7ccbb; font-size:0.93rem; margin:0;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--parchment);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{
+    border:1px solid var(--line); border-radius:4px; padding:26px;
+    display:flex; flex-direction:column; gap:6px; text-decoration:none; color:var(--ink);
+    transition:border-color .2s, transform .2s;
+  }
+  .contact-card:hover{border-color:var(--gold); transform:translateY(-2px);}
+  .contact-card .label{font-size:0.82rem; color:var(--gold); font-weight:600;}
+  .contact-card .value{font-family:'Fraunces','Noto Serif TC',serif; font-size:1.1rem; color:var(--forest-deep); word-break:break-word;}
+
+  footer{
+    background:var(--forest-deep); color:#a9b19b; padding:40px 0; font-size:0.85rem;
+  }
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  @media(max-width:600px){
+    .wrap{padding:0 20px;}
+    section{padding:64px 0;}
+    .hero{padding:80px 0 90px;}
+    .nav-inner{padding:14px 20px;}
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Dr. Ceabert J. Griffith
+      <small><span class="en">Wellness Coaching</span><span class="zh">健康教練服務</span></small>
+    </div>
+    <nav class="links">
+      <a href="#about"><span class="en">About</span><span class="zh">關於醫師</span></a>
+      <a href="#services"><span class="en">Services</span><span class="zh">服務項目</span></a>
+      <a href="#investment"><span class="en">Investment</span><span class="zh">費用方案</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="zh">聯絡方式</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <svg class="hero-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 620 C 200 520, 260 420, 220 300 C 190 210, 260 150, 380 170" stroke="#5f7a53" stroke-width="1.4" fill="none" opacity="0.5"/>
+    <path d="M 220 300 C 300 330, 340 260, 320 180" stroke="#5f7a53" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M 900 -30 C 860 120, 950 220, 1150 240" stroke="#8ea77e" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M 950 220 C 1000 300, 1080 300, 1120 400" stroke="#8ea77e" stroke-width="1" fill="none" opacity="0.35"/>
+    <circle cx="380" cy="170" r="4" fill="#b6873f" opacity="0.7"/>
+    <circle cx="320" cy="180" r="3" fill="#b6873f" opacity="0.5"/>
+    <circle cx="1120" cy="400" r="4" fill="#b6873f" opacity="0.6"/>
+  </svg>
+  <div class="wrap">
+    <span class="hero-eyebrow">
+      <span class="en">Family Medicine · Public Health · Wellness Coaching</span>
+      <span class="zh">家庭醫學．公共衛生．健康教練</span>
+    </span>
+    <h1>
+      <span class="en">Transform your health &amp; vitality.</span>
+      <span class="zh">轉化你的健康與活力。</span>
+    </h1>
+    <p class="lede">
+      <span class="en">Personalized, whole-person coaching rooted in family medicine and public health — built to help you feel steadier, stronger, and more like yourself, one habit at a time.</span>
+      <span class="zh">以家庭醫學與公共衛生為根基，提供個人化的全人健康教練服務，陪你一次建立一個習慣，找回穩定、強健、更像自己的生活狀態。</span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="https://doxy.me/pubhealthdoc" target="_blank" rel="noopener">
+        <span class="en">Book a session</span><span class="zh">預約諮詢</span>
+      </a>
+      <a class="btn btn-outline" href="mailto:okiwellnessdoc@yahoo.com">
+        <span class="en">Email Dr. Griffith</span><span class="zh">寄送電子郵件</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker"><span class="en">Expertise &amp; background</span><span class="zh">專業背景</span></span>
+      <h2><span class="en">Meet Dr. Ceabert J. Griffith</span><span class="zh">認識 Ceabert J. Griffith 醫師</span></h2>
+      <p><span class="en">Decades of clinical and public-health experience, brought into a coaching relationship built around your everyday life.</span>
+      <span class="zh">數十年臨床與公共衛生經驗，化為貼近你日常生活的教練陪伴關係。</span></p>
+    </div>
+
+    <div class="about-grid">
+      <div class="credential-list">
+        <div class="credential">
+          <div class="mark">1</div>
+          <div>
+            <h3><span class="en">Family Medicine &amp; Public Health</span><span class="zh">家庭醫學與公共衛生</span></h3>
+            <p><span class="en">A physician's grounding in whole-person, evidence-based care.</span><span class="zh">以醫師背景為基礎，提供實證且全人的照護觀點。</span></p>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="mark">2</div>
+          <div>
+            <h3><span class="en">Harvard-Trained Wellness Coach</span><span class="zh">哈佛培訓健康教練</span></h3>
+            <p><span class="en">Coaching methodology grounded in behavior change science.</span><span class="zh">教練方法立基於行為改變科學。</span></p>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="mark">3</div>
+          <div>
+            <h3><span class="en">Bestselling Author</span><span class="zh">暢銷書作者</span></h3>
+            <p><span class="en">Practical books translating research into daily habits.</span><span class="zh">將研究轉化為日常可行習慣的實用著作。</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-panel">
+        <h3><span class="en">Books by Dr. Griffith</span><span class="zh">醫師著作</span></h3>
+        <div class="book-item">
+          <span class="en">15 Power Habits of Wellness</span>
+          <span class="zh">《健康生活的15個強力習慣》</span>
+        </div>
+        <div class="book-item">
+          <span class="en">11 Power Habits to Defeat High Blood Pressure</span>
+          <span class="zh">《擊退高血壓的11個強力習慣》</span>
+        </div>
+        <div class="book-item">
+          <span class="en">9 Simple Steps to Prevent Cancer</span>
+          <span class="zh">《預防癌症的9個簡單步驟》</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 360 60, 1080 0, 1440 30"/></svg>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker"><span class="en">Wellness coaching services</span><span class="zh">健康教練服務</span></span>
+      <h2><span class="en">Support across five areas of everyday vitality</span><span class="zh">五大生活活力領域的支持</span></h2>
+      <p><span class="en">Chosen with you and built around your life — coaching that meets the specific things getting in your way.</span>
+      <span class="zh">與你共同選擇、為你的生活量身打造，聚焦真正困擾你的問題。</span></p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 20 C4 10 10 4 20 4 C20 14 14 20 4 20 Z"/><path d="M4 20 L14 10"/></svg>
+        <h3><span class="en">Energy &amp; Mobility</span><span class="zh">能量與行動力</span></h3>
+        <div class="tag-list">
+          <span class="tag"><span class="en">Chronic Fatigue</span><span class="zh">慢性疲勞</span></span>
+          <span class="tag"><span class="en">Fibromyalgia</span><span class="zh">纖維肌痛症</span></span>
+          <span class="tag"><span class="en">IBS &amp; Constipation</span><span class="zh">腸躁症與便秘</span></span>
+          <span class="tag"><span class="en">Balance Issues</span><span class="zh">平衡問題</span></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 4 V2 M12 22 V20 M4 12 H2 M22 12 H20"/></svg>
+        <h3><span class="en">Pain &amp; Comfort</span><span class="zh">疼痛與舒適</span></h3>
+        <div class="tag-list">
+          <span class="tag"><span class="en">Arthritis &amp; Joint Pain</span><span class="zh">關節炎與關節疼痛</span></span>
+          <span class="tag"><span class="en">Muscle Stiffness</span><span class="zh">肌肉僵硬</span></span>
+          <span class="tag"><span class="en">Osteoporosis</span><span class="zh">骨質疏鬆症</span></span>
+          <span class="tag"><span class="en">Chronic Headaches</span><span class="zh">慢性頭痛</span></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15 3 C10 3 6 7 6 12 C6 17 10 21 15 21 C11 19 9 15.5 9 12 C9 8.5 11 5 15 3 Z"/></svg>
+        <h3><span class="en">Rest &amp; Cognitive Health</span><span class="zh">休息與認知健康</span></h3>
+        <div class="tag-list">
+          <span class="tag"><span class="en">Insomnia</span><span class="zh">失眠</span></span>
+          <span class="tag"><span class="en">Stress &amp; Anxiety</span><span class="zh">壓力與焦慮</span></span>
+          <span class="tag"><span class="en">Depression</span><span class="zh">憂鬱</span></span>
+          <span class="tag"><span class="en">Poor Memory</span><span class="zh">記憶力衰退</span></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 14 C4 10 7 7 12 7 C17 7 20 10 20 14" /><path d="M4 14 H20 V18 H4 Z"/></svg>
+        <h3><span class="en">Metabolic &amp; Internal Wellness</span><span class="zh">代謝與內在健康</span></h3>
+        <div class="tag-list">
+          <span class="tag"><span class="en">Weight Gain</span><span class="zh">體重增加</span></span>
+          <span class="tag"><span class="en">Hypertension &amp; Diabetes</span><span class="zh">高血壓與糖尿病</span></span>
+          <span class="tag"><span class="en">Kidney Disease</span><span class="zh">腎臟疾病</span></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <svg class="leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 L12 21 M6 8 L12 3 L18 8"/><path d="M8 13 L12 9 L16 13"/></svg>
+        <h3><span class="en">Prevention &amp; Longevity</span><span class="zh">預防與長壽</span></h3>
+        <div class="tag-list">
+          <span class="tag"><span class="en">Cancer &amp; Heart Disease Prevention</span><span class="zh">癌症與心臟病預防</span></span>
+          <span class="tag"><span class="en">Menopause Support</span><span class="zh">更年期支持</span></span>
+          <span class="tag"><span class="en">General Healthy Aging Plan</span><span class="zh">一般健康老化計畫</span></span>
+          <span class="tag"><span class="en">Supplement Education</span><span class="zh">營養補充品衛教</span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<svg class="divider" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 360 0, 1080 60, 1440 30"/></svg>
+
+<section class="investment" id="investment">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker"><span class="en">Investment &amp; payment</span><span class="zh">費用與付款方式</span></span>
+      <h2><span class="en">Straightforward pricing</span><span class="zh">清楚透明的收費方式</span></h2>
+    </div>
+    <div class="invest-grid">
+      <div class="invest-card">
+        <div class="figure">$50<span style="font-size:1rem;">/hr</span></div>
+        <h3><span class="en">Hourly Sessions</span><span class="zh">單次諮詢</span></h3>
+        <p><span class="en">Straightforward hourly coaching, billed per session.</span><span class="zh">依單次諮詢時數計費，清楚簡單。</span></p>
+      </div>
+      <div class="invest-card">
+        <div class="figure" style="font-size:1.5rem;"><span class="en">Monthly Rates</span><span class="zh">月費方案</span></div>
+        <h3><span class="en">Ongoing Coaching</span><span class="zh">長期陪伴方案</span></h3>
+        <p><span class="en">Monthly plans available for sustained, ongoing support.</span><span class="zh">提供月費方案，適合需要長期持續支持的你。</span></p>
+      </div>
+      <div class="invest-card">
+        <div class="figure" style="font-size:1.5rem;"><span class="en">PayPal</span><span class="zh">PayPal 付款</span></div>
+        <h3><span class="en">Payment Processing</span><span class="zh">付款方式</span></h3>
+        <ul>
+          <li><span class="en">Personal account</span><span class="zh">個人帳戶</span></li>
+          <li><span class="en">Debit / credit / bank link accepted</span><span class="zh">支援金融卡、信用卡與銀行連結</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="disclaimer">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--gold-soft);"><span class="en">Important note</span><span class="zh">重要提醒</span></span>
+      <h2><span class="en">How this coaching fits into your care</span><span class="zh">這項教練服務在你的照護中扮演的角色</span></h2>
+      <p><span class="en">A clear, honest picture of what this coaching is — and isn't — so you can use it well.</span>
+      <span class="zh">誠實清楚地說明這項服務的定位，讓你能安心且恰當地運用它。</span></p>
+    </div>
+    <div class="principle-row">
+      <div class="principle">
+        <h3><span class="en">Supportive Partnership</span><span class="zh">支持性的夥伴關係</span></h3>
+        <p><span class="en">Coaching is a collaborative relationship centered on your goals, not a top-down prescription.</span>
+        <span class="zh">教練是以你的目標為核心的協作關係，而非由上而下的指示。</span></p>
+      </div>
+      <div class="principle">
+        <h3><span class="en">Adjunctive Coaching</span><span class="zh">輔助性的教練服務</span></h3>
+        <p><span class="en">Designed to work alongside your existing medical care, not in place of it.</span>
+        <span class="zh">設計上是與你現有的醫療照護並行，而非取代它。</span></p>
+      </div>
+      <div class="principle">
+        <h3><span class="en">Not a Medical Treatment Replacement</span><span class="zh">並非醫療治療的替代方案</span></h3>
+        <p><span class="en">Please continue to see your physician for diagnosis and treatment of medical conditions.</span>
+        <span class="zh">請持續由你的醫師進行病況診斷與治療。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker"><span class="en">Contact &amp; logistics</span><span class="zh">聯絡方式</span></span>
+      <h2><span class="en">Get in touch</span><span class="zh">與我們聯絡</span></h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:okiwellnessdoc@yahoo.com">
+        <span class="label"><span class="en">Email</span><span class="zh">電子郵件</span></span>
+        <span class="value">okiwellnessdoc@yahoo.com</span>
+      </a>
+      <a class="contact-card" href="https://doxy.me/pubhealthdoc" target="_blank" rel="noopener">
+        <span class="label"><span class="en">Online Office</span><span class="zh">線上諮詢室</span></span>
+        <span class="value">doxy.me/pubhealthdoc</span>
+      </a>
+      <div class="contact-card" style="cursor:default;">
+        <span class="label"><span class="en">Phone</span><span class="zh">電話</span></span>
+        <span class="value"><span class="en">Available in the US &amp; Japan</span><span class="zh">於美國與日本皆有專線，請以電子郵件聯繫安排通話</span></span>
+      </div>
+      <a class="contact-card" href="#home">
+        <span class="label"><span class="en">Start Here</span><span class="zh">從這裡開始</span></span>
+        <span class="value"><span class="en">Back to top</span><span class="zh">回到頂端</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Dr. Ceabert J. Griffith <span class="en">Wellness Coaching</span><span class="zh">健康教練服務</span></span>
+    <span><span class="en">Family Medicine · Public Health · Wellness Coaching</span><span class="zh">家庭醫學．公共衛生．健康教練</span></span>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.lang-toggle button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      document.body.classList.toggle('lang-en', lang === 'en');
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hant');
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+    });
+  });
+</script>
+
+</body>
+</html>
